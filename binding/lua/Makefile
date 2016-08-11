@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -O2 -fPIC -Wall
-LUADIR = /usr/local/include
+LUADIR = /usr/local/include/luajit-2.0
 TARGET = protobuf.so
 
 .PHONY : all clean
