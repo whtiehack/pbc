@@ -49,7 +49,7 @@ extern "C" {
 
 #define UNUSED(x) ((void)(x))  /* to avoid warnings */
 
-static inline void *
+static _inline void *
 checkuserdata(lua_State *L, int index) {
 	void * ud = lua_touserdata(L,index);
 	if (ud == NULL) {
@@ -1078,7 +1078,7 @@ _add_rmessage(lua_State *L) {
 extern "C" {
 #endif
 
-int
+	__declspec(dllexport) int
 luaopen_protobuf_c(lua_State *L) {
 	luaL_Reg reg[] = {
 		{"_env_new" , _env_new },
