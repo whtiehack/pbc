@@ -58,9 +58,17 @@ checkuserdata(lua_State *L, int index) {
 	return ud;
 }
 
+// add by leo
+// singleton for pbc_env
+static struct pbc_env *g_instance = NULL;
+
+
+
 static int
 _env_new(lua_State *L) {
-	struct pbc_env * env = pbc_new();
+    if(!g_instance)
+        g_instance = pbc_new();
+	struct pbc_env * env = g_instance;
 	lua_pushlightuserdata(L, env);
 	return 1;
 }
